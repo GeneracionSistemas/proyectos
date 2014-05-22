@@ -12,3 +12,5 @@ Para esto siempre tomar en cuenta lo siguiente:
 2. Lo que les aparezca resaltado en rojo quiere decir que fue borrado o alterado o ya no existe. Mientras que lo que se 
 encuentra resaltado en color verde es los cambios nuevos que se han agregado al archivo.
 
+3. Test
+
