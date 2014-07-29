@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<project name="quartzSukasa1" basedir="." default="build">
+	<property file="build.properties" />
+
+	<property name="src.dir" value="src" />
+	<property name="web.dir" value="WebContent" />
+	<property name="build.dir" value="${web.dir}/WEB-INF/classes" />
+	<property name="name" value="quartzSukasa1" />
+
+	<path id="classpath">
+		<fileset dir="${web.dir}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${appserver.lib}">
+			<include name="servlet*.jar" />
+		</fileset>
+		<fileset id="lib" dir="WebContent/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement path="${build.dir}" />
+	</path>
+
+	<target name="build" description="Compile main source tree java files">
+		<mkdir dir="${build.dir}" />
+		<javac destdir="${build.dir}" source="1.5" target="1.5" debug="true" deprecation="false" optimize="false" failonerror="true">
+			<src path="${src.dir}" />
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<target name="war" depends="build" description="Deploy application as a WAR file">
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}">
+				<include name="*.properties" />
+				<include name="*.xml" />
+			</fileset>
+		</copy>
+		<war destfile="${name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</war>
+	</target>
+</project>

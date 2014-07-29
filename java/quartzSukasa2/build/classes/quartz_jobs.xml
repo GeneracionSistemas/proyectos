@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<quartz xmlns="http://www.opensymphony.com/quartz/JobSchedulingData"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opensymphony.com/quartz/JobSchedulingData
+                      http://www.opensymphony.com/quartz/xml/job_scheduling_data_1_5.xsd"
+    version="1.5">
+    
+    <job>
+        <job-detail>
+            <name>quartzSukasaJob</name>
+            <group>SukasaGroup</group>
+            <description>SukasaJob</description>
+            <job-class>com.sukasa.quartz.QuartzJob</job-class>
+        </job-detail>
+        <trigger>
+            <cron>
+                <name>QuartzExampleTrigger</name>
+                <group>ExampleTriggerGroup</group>
+                <job-name>quartzSukasaJob</job-name>
+                <job-group>SukasaGroup</job-group>
+                <!-- Se dispara cada 10 segundos
+                <cron-expression>0/10 * * * *  ?</cron-expression>-->
+               	
+                <!-- <cron-expression>0 51 12 * * ? </cron-expression> 
+				<cron-expression>0 0 13 * *  ?</cron-expression> 
+				<cron-expression>0/10 * * * *  ?</cron-expression>
+				<cron-expression>0 0/20 * * * ?</cron-expression>
+                <cron-expression>0/10 * * * *  ?</cron-expression>
+                <cron-expression>0 40 12 * * ? </cron-expression>
+                <cron-expression>0 0 0/2 * * ?</cron-expression>
+                <cron-expression>0/10 * * * *  ?</cron-expression>
+                <cron-expression>0 0 12 * * ? </cron-expression>
+                <cron-expression>0 05 20 * * ? </cron-expression>
+                <cron-expression>0/10 * * * *  ?</cron-expression>
+                <cron-expression>0 0 22 * * ? </cron-expression>
+                 <cron-expression>0 05 23 * * ? </cron-expression>-->
+                <cron-expression>0 05 23 * * ? </cron-expression>
+            </cron>
+        </trigger>
+    </job>
+</quartz>
